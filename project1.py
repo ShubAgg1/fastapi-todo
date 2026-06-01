@@ -54,3 +54,14 @@ def completed_tasks():
 
     return completed1    
          
+@app.get("/stats")
+
+def stats():
+    k=dict([])
+    l=[]
+    for todo in todos:
+      if(todo["completed"]==True):
+         l.append(todo)
+    k["total_ids"]=len(todos)
+    k["completed"]=len(l)
+    return k
