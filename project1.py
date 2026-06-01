@@ -11,6 +11,11 @@ class Todo(BaseModel):
 next_id=1
 todos = []
 
+
+@app.get("/")
+def home():
+    return {"message": "Todo API Running"}
+
 @app.post("/todo")
 
 def new_todo(todo:Todo):
